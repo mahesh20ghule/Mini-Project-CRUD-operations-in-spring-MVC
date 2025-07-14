@@ -15,10 +15,30 @@ A complete CRUD-based web application built using Spring Boot MVC with Thymeleaf
 ---
 
 ## 💻 Tech Stack
-- **Backend:** Spring Boot (MVC), Spring Data JPA
-- **Frontend:** Thymeleaf, HTML, CSS
-- **Database:** MySQL / H2 
-- **Tools:** Maven, Spring Tool Suite, Git
+
+### 🧠 Backend
+- **Java 17+**
+- **Spring Boot (MVC Architecture)**
+- **Spring Data JPA** – for ORM and database interaction
+- **Spring Web** – for handling HTTP requests and responses
+- **Lombok** – to reduce boilerplate code using annotations
+
+### 🎨 Frontend
+- **Thymeleaf** – server-side Java template engine
+- **HTML5 & CSS3** – for structure and styling
+
+### 🗃️ Database
+- **Oracle** – primary database
+
+### 🚀 Tools & Utilities
+- **Maven** – for dependency management and builds
+- **Spring Tool Suite (STS)** – development environment
+- **Git & GitHub** – version control and code hosting
+- **Embedded Tomcat** – via Spring Boot starter
+
+### 🌐 Web Features
+- **Pagination** – implemented using Spring Data `Pageable`
+- **Custom Error Handling** – custom `4xx.html` and `5xx.html` error pages using Thymeleaf
 
 ---
 
