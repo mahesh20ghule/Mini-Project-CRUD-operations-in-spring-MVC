@@ -1,0 +1,81 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f8fb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        .btn-container {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Employee Management System</h1>
+        <p>This application helps you manage your organization's employee records efficiently. 
+           Add, update, delete, or view employee details with ease.</p>
+
+        <div class="btn-container">
+            <a th:href="@{/employee/report}" class="btn">📄 View All Employees</a>
+            <a th:href="@{/employee/emp_add}" class="btn">➕ Add New Employee</a>
+            <a href="#" class="btn">⚙️ Features Coming Soon</a>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Employee Tracker | Powered by Spring Boot MVC
+        </div>
+    </div>
+
+</body>
+</html>

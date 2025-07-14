@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Error - Something Went Wrong</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3f3;
+            color: #333;
+            text-align: center;
+            padding-top: 80px;
+        }
+        h1 {
+            color: #cc0000;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Oops! Something went wrong.</h1>
+    <p>We're sorry, but an unexpected error has occurred.</p>
+    <p>Please try again later or contact the developer team if the issue persists.</p>
+    <p><a th:href="@{/employee/welcome}">Go to Home Page</a></p>
+</body>
+</html>

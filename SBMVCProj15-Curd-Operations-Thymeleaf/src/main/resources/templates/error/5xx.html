@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Server Error</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #f8b195, #f67280);
+            color: #fff;
+            text-align: center;
+            padding: 60px;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #fff;
+            color: #f67280;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #ffe0e6;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>500 - Internal Server Error</h1>
+    <p>Oops! Something went wrong on our end.</p>
+    <p>Please try again later or return to the homepage.</p>
+    
+    <a th:href="@{/employee/welcome}">Go to Homepage</a>
+
+</body>
+</html>

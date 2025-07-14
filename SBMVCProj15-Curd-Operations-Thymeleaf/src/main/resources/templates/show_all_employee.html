@@ -1,0 +1,241 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Report</title>
+   <style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        /* background: linear-gradient(to right, #d9afd9, #97d9e1); */
+        padding: 30px;
+        margin: 0;
+    }
+
+    h1, h2 {
+        color: #2c3e50;
+        text-align: center;
+    }
+
+    .message {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+        padding: 12px 20px;
+        border-radius: 6px;
+        margin: 20px auto;
+        width: 60%;
+        text-align: center;
+    }
+
+    .top-bar {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 6px;
+        display: inline-block;
+        margin: 0 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #2980b9;
+    }
+
+    .search-box {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        width: 65%;
+        margin: 0 auto 30px;
+    }
+
+    .search-box table td {
+        padding: 10px;
+    }
+
+    .search-box input[type="submit"],
+    .search-box input[type="reset"] {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        background-color: #2ecc71;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 10px 8px 0;
+        transition: background-color 0.3s;
+    }
+
+    .search-box input[type="submit"]:hover,
+    .search-box input[type="reset"]:hover {
+        background-color: #27ae60;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background-color: #34495e;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+   /*  Pagination CSS */
+   .pagination {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 4px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #2980b9;
+}
+
+.pagination a.current-page {
+    background-color: #2ecc71;
+    font-weight: bold;
+    cursor: default;
+}
+   
+</style>
+
+    
+</head>
+<body>
+<div class="search-box">
+    <h2 style="text-align:center;">Search Employee by Filters</h2>
+    <form th:action="@{/employee/search}" th:object="${emp}" method="post">
+        <table>
+            <tr>
+                <td>Employee Name:</td>
+                <td><input type="text" th:field="*{ename}"/></td>
+            </tr>
+            <tr>
+                <td>Designation:</td>
+                <td><input type="text" th:field="*{job}"/></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input type="number" th:field="*{sal}"/></td>
+            </tr>
+           <tr>
+    <td>Department No:</td>
+    <td>
+       <input type="checkbox" name="deptnos" value="10" />10
+<input type="checkbox" name="deptnos" value="20" />20
+<input type="checkbox" name="deptnos" value="30" />30
+<input type="checkbox" name="deptnos" value="40" />40
+
+    </td>
+</tr>
+
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="submit" value="search"/>
+                    <input type="reset" value="reset"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<hr>
+    <div class="top-bar">
+        <h1>All Employee Records</h1>
+        <a th:href="@{/employee/emp_add}" class="btn">+ Add New Employee</a>
+    </div>
+
+   <div th:if="${msg}" th:text="${msg}" class="message"></div>
+
+
+            <table th:if="${empList != null and empList.content.size()>0 }">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Salary</th>
+                    <th>Department Number</th>
+                    <th>Operations</th>
+                </tr>
+                    <tr th:each="emp:${empList.content}">
+                        <td><span th:text="${emp.empno}"/></td>
+                        <td><span th:text="${emp.ename}"/></td>
+                        <td><span th:text="${emp.job}"/></td>
+                        <td><span th:text="${emp.sal}"/></td>
+                        <td><span th:text="${emp.deptno}"/></td>
+                        
+                        <td>
+                            <a class="btn" th:href="@{/employee/edit?(id=${emp.empno})}">Edit</a>
+                            <a class="btn" onclick="return confirm('Are you sure you want to delete the record?')" th:href="@{/employee/delete?(id=${emp.empno})}">Delete</a>
+                        </td>
+                    </tr>
+               
+            </table>
+            
+           <th:block th:if="${empList == null or empList.content.size() == 0}">
+    <h2>No Employee records found</h2>
+</th:block>
+
+            
+            <div class="pagination" th:if="${empList !=null and empList.totalPages > 1 }">
+            
+   
+        <a th:if="${!empList.first }" th:href="@{/employee/report(page=0)}">First</a>
+        <a th:if="${empList.hasPrevious() }" th:href="@{/employee/report(page=${empList.number - 1})}">Previous</a>
+   
+
+  		<span th:each="i : ${#numbers.sequence(1, empList.totalPages)}">
+    		<a th:href="@{/employee/report(page=${i - 1})}"
+      			 th:classappend="${i == empList.number + 1 ? 'current-page' : ''}">
+        <span th:text="${i}"></span>
+  			 </a>
+		</span>
+
+
+  
+        <a th:if="${empList.hasNext()}" th:href="@{/employee/report(page=${empList.number + 1})}">Next</a>
+   
+
+   
+         <a th:if="${empList.hasNext()}" th:href="@{/employee/report(page=${empList.totalPages-1})}">Last</a>
+   
+</div>
+
+     
+
+</body>
+</html>
