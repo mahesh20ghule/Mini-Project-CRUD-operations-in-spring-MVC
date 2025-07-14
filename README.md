@@ -1,6 +1,6 @@
 # 🧾 Employee Management System (Spring Boot MVC)
 
-A complete CRUD-based web application built using Spring Boot MVC with Thymeleaf. This project manages employee records with features like pagination, search filters, i18n, and custom error handling.
+A complete CRUD-based web application built using Spring Boot MVC with Thymeleaf. This project manages employee records with features like pagination, search filters, and custom error handling.
 
 ---
 
