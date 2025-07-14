@@ -17,8 +17,8 @@ A complete CRUD-based web application built using Spring Boot MVC with Thymeleaf
 ## 💻 Tech Stack
 - **Backend:** Spring Boot (MVC), Spring Data JPA
 - **Frontend:** Thymeleaf, HTML, CSS
-- **Database:** MySQL / H2 (whichever you used)
-- **Tools:** Maven, Spring Tool Suite / IntelliJ, Git
+- **Database:** MySQL / H2 
+- **Tools:** Maven, Spring Tool Suite, Git
 
 ---
 
