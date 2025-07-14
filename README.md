@@ -39,6 +39,20 @@ A complete CRUD-based web application built using Spring Boot MVC with Thymeleaf
 ### 🌐 Web Features
 - **Pagination** – implemented using Spring Data `Pageable`
 - **Custom Error Handling** – custom `4xx.html` and `5xx.html` error pages using Thymeleaf
+  
+## 🛠️ Challenges Faced & Solutions
+
+- **Duplicate POST Requests on Page Refresh:**
+  - Faced the common issue of form re-submission when users refreshed the page after submitting a POST request.
+  - ✅ Resolved using the Post/Redirect/Get (PRG) pattern by redirecting after form submission and storing messages in the session or using RedirectAttributes.
+
+- **Form Checkboxes with Dynamic Search:**
+  - Thymeleaf checkboxes bound to a list (`deptnos`) caused exceptions since the entity class didn't have that field.
+  - ✅ Fixed by capturing the checkbox values using `@RequestParam` and plain HTML `name="deptnos"` without binding to the model.
+
+- **Maintaining Search State During Pagination:**
+  - Dynamic search filters were getting lost when navigating between pages of results.
+  - ✅ Handled by storing the search input in the session and reusing it across paginated requests to maintain filter context.
 
 ---
 
