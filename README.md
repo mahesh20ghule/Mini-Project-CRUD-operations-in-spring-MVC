@@ -3,6 +3,8 @@
 A complete CRUD-based web application built using Spring Boot MVC with Thymeleaf. This project manages employee records with features like pagination, search filters, and custom error handling.
 
 ---
+## Demo Video on LinkedIn
+[Watch here]([https://www.linkedin.com/your-demo-link](https://www.linkedin.com/posts/mahesh-ghule20_springboot-javadeveloper-fullstackdevelopment-activity-7350474361604034561-z1P-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWOcswBa1SddpfUdjs0ZPNQ7ag_jtmjieM))
 
 ## 🚀 Features
 - Add, Edit, Delete and Search Employees
