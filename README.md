@@ -63,3 +63,4 @@ A complete CRUD-based web application built using Spring Boot MVC with Thymeleaf
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/ems-springboot-mvc.git
+2. import in eclipse IDE or intellij idea or any IDE you are comfortable with and run it
